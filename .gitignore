@@ -1,0 +1,15 @@
+# Terraform & Terragrunt
+.terraform/
+.terragrunt-cache/
+*.tfstate
+*.tfstate.*
+*.log
+.crash
+*.backup
+*.bak
+
+# Editor / OS
+.DS_Store
+.idea/
+.vscode/
+*.swp
