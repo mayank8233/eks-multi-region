@@ -1,15 +1,14 @@
 variable "bucket_name" {
-  type = string
+  description = "Name of the S3 bucket for storing Terraform state"
+  type        = string
 }
 
-variable "lock_table_name" {
-  type = string
+variable "dynamodb_table" {
+  description = "Name of the DynamoDB table for state locking"
+  type        = string
 }
 
 variable "tags" {
-  type    = map(string)
-  default = {
-    Terraform = "true"
-    Environment = "bootstrap"
-  }
+  description = "Tags to apply to resources"
+  type        = map(string)
 }

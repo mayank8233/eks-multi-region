@@ -1,5 +1,5 @@
-locals {
-  region = get_env("REGION", "ap-south-1")
+include {
+  path = find_in_parent_folders()
 }
 
 terraform {
@@ -8,11 +8,18 @@ terraform {
 
 dependency "vpc" {
   config_path = "../vpc"
+
+  mock_outputs = {
+    vpc_id          = "vpc-xxxxxxxx"
+    private_subnets = ["subnet-aaaa", "subnet-bbbb"]
+  }
 }
 
 inputs = {
-  region       = local.region
-  cluster_name = "eks-${local.region}"
-  vpc_id       = dependency.vpc.outputs.vpc_id
-  subnet_ids   = dependency.vpc.outputs.private_subnets
+  region          = local.region
+  cluster_name    = local.cluster_name
+  cluster_version = local.cluster_version
+  vpc_id          = dependency.vpc.outputs.vpc_id
+  subnet_ids      = dependency.vpc.outputs.private_subnets
+  tags            = local.env_tags
 }
