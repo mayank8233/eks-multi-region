@@ -1,0 +1,9 @@
+pwd : /terragrunt
+REGION=eu-west-1 terragrunt apply --all
+REGION=eu-west-1 ap=south-1 terragrunt apply --all
+
+using the above command we can setup vpc and cluster in multiple region at once
+
+
+
+
