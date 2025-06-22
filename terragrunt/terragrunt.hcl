@@ -23,7 +23,7 @@ generate "provider" {
   contents  = <<EOF
 provider "aws" {
   region  = "${local.region}"
-  profile = "personal"
+  profile = "aditya"
 }
 EOF
 }
