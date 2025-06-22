@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "terraform_state" {
-  bucket = var.bucket_name
+  bucket        = var.bucket_name
   force_destroy = true
 
   versioning {
@@ -18,7 +18,7 @@ resource "aws_s3_bucket" "terraform_state" {
 }
 
 resource "aws_dynamodb_table" "terraform_locks" {
-  name         = var.lock_table_name
+  name         = var.dynamodb_table
   billing_mode = "PAY_PER_REQUEST"
   hash_key     = "LockID"
 
@@ -34,6 +34,6 @@ output "bucket_name" {
   value = aws_s3_bucket.terraform_state.id
 }
 
-output "lock_table_name" {
+output "dynamodb_table_name" {
   value = aws_dynamodb_table.terraform_locks.name
 }

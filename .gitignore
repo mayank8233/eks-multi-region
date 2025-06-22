@@ -13,3 +13,6 @@
 .idea/
 .vscode/
 *.swp
+terragrunt/root.hcl
+terragrunt/root.hcl
+terragrunt/eks/.terraform.lock.hcl

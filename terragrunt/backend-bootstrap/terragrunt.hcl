@@ -7,6 +7,7 @@ terraform {
 }
 
 inputs = {
-  bucket_name     = "my-terragrunt-state-bucket"
-  lock_table_name = "terraform-locks"
+  bucket_name    = read_input("Enter S3 bucket name for state backend:")
+  dynamodb_table = read_input("Enter DynamoDB table name for state locking:")
+  region         = local.region
 }
